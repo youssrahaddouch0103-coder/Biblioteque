@@ -1,7 +1,9 @@
 # Bibliotech — Library Management Desktop App
 
 Desktop application for managing a small library, built with **Java 17**, **JavaFX** and **SQLite**.
-It has two spaces: an administrator panel to run the library, and a member space where readers follow their loans and reserve books.
+It has two spaces: an administrator panel to run the library, and a member space where readers browse the catalogue, borrow and reserve books.
+
+![Login screen](docs/screenshots/login.png)
 
 ## Features
 
@@ -15,8 +17,19 @@ It has two spaces: an administrator panel to run the library, and a member space
 
 **Member**
 - Sign up and log in
+- Browse and filter the catalogue (available, borrowed, reservable)
+- Borrow a book for a chosen number of days, or reserve it
 - See my loans and my reservations
-- Reserve an available book
+
+## Screenshots
+
+| Book catalogue (admin) | Loans with automatic overdue status |
+|---|---|
+| ![Catalogue](docs/screenshots/catalogue.png) | ![Loans](docs/screenshots/loans.png) |
+| **Reservations** | **Member space** |
+| ![Reservations](docs/screenshots/reservations.png) | ![Member space](docs/screenshots/member-space.png) |
+
+<sub>Screenshots taken with demo data.</sub>
 
 ## Tech stack
 
