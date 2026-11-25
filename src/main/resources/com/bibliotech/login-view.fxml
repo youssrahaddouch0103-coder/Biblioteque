@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.fxml.*?>
+
+<!-- Racine avec fond flou -->
+<StackPane xmlns="http://javafx.com/javafx"
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="com.bibliotech.LoginController"
+           stylesheets="@app.css"
+           styleClass="login-background">
+
+    <children>
+
+        <!-- Carte de login vintage -->
+        <VBox alignment="CENTER"
+              spacing="15"
+              styleClass="login-root">
+
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <children>
+
+                <Label text="Connexion à Bibliotèque"
+                       styleClass="login-title"/>
+
+                <fx:define>
+                    <ToggleGroup fx:id="roleGroup"/>
+                </fx:define>
+
+                <HBox alignment="CENTER" spacing="20">
+                    <children>
+                        <RadioButton fx:id="adminRadio"
+                                     text="Administrateur"
+                                     toggleGroup="$roleGroup"
+                                     selected="true"/>
+                        <RadioButton fx:id="memberRadio"
+                                     text="Adhérent"
+                                     toggleGroup="$roleGroup"/>
+                    </children>
+                </HBox>
+
+                <GridPane hgap="10" vgap="10">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                    <children>
+                        <Label text="Email :"
+                               styleClass="login-label"
+                               GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+
+                        <TextField fx:id="usernameField"
+                                   promptText="Adresse email"
+                                   styleClass="login-field"
+                                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                        <Label text="Mot de passe :"
+                               styleClass="login-label"
+                               GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+
+                        <PasswordField fx:id="passwordField"
+                                       promptText="Mot de passe"
+                                       styleClass="login-field"
+                                       GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                    </children>
+                </GridPane>
+
+                <HBox spacing="10" alignment="CENTER">
+                    <children>
+                        <Button text="Se connecter"
+                                onAction="#onLoginClicked"
+                                styleClass="action-button"/>
+
+                        <Button fx:id="signupButton"
+                                text="Créer un compte adhérent"
+                                onAction="#onSignupClicked"
+                                styleClass="secondary-button"/>
+                    </children>
+                </HBox>
+
+                <Label fx:id="errorLabel"
+                       styleClass="error-message"
+                       visible="false"
+                       managed="false"/>
+
+            </children>
+        </VBox>
+
+    </children>
+</StackPane>

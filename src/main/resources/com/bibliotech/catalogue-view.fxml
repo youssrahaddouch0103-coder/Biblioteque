@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bibliotech.CatalogueController">
+
+    <!-- Titre et recherche -->
+    <top>
+        <VBox spacing="10" style="-fx-background-color: white;">
+            <padding>
+                <Insets bottom="10" left="20" right="20" top="10" />
+            </padding>
+
+            <!-- Barre de recherche et actions -->
+            <HBox alignment="CENTER_LEFT" spacing="15">
+                <Label style="-fx-text-fill: #654321;" text="Rechercher:">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+               <effect>
+                  <InnerShadow />
+               </effect></Label>
+                <TextField fx:id="searchField" prefWidth="300" promptText="Titre, auteur, ISBN, catégorie..." style="-fx-background-color: #ffffff; -fx-border-color: #B0A69D;" />
+
+                <Button defaultButton="true" onAction="#onRefresh" style="-fx-background-color: #1b531e; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Rafraîchir" />
+
+                <Label fx:id="statusLabel" style="-fx-font-weight: bold; -fx-text-fill: white;" />
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- Tableau des livres -->
+    <center>
+        <TableView fx:id="booksTable" prefHeight="600.0" prefWidth="770.0" style="-fx-background-color: #ffffff; -fx-border-color: #B0A69D; -fx-border-width: 2;">
+            <columns>
+                <TableColumn fx:id="colId" prefWidth="50" text="ID" />
+                <TableColumn fx:id="colTitle" prefWidth="220" text="Titre" />
+                <TableColumn fx:id="colAuthor" prefWidth="170" text="Auteur" />
+                <TableColumn fx:id="colIsbn" prefWidth="140" text="ISBN" />
+                <TableColumn fx:id="colCategory" prefWidth="160" text="Catégorie" />
+            </columns>
+            <BorderPane.margin>
+                <Insets left="20.0" right="20.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+
+    <!-- Formulaire et actions -->
+    <bottom>
+        <VBox prefHeight="170.0" prefWidth="809.0" spacing="15" style="-fx-background-color: white; -fx-padding: 20;">
+
+            <!-- Section : Gestion des livres -->
+            <Label style="-fx-font-weight: bold; -fx-font-size: 18px; -fx-text-fill: #011753;" text="Gestion des livres" />
+
+            <!-- Formulaire -->
+            <GridPane hgap="15" vgap="10">
+                <Label text="Titre :" textFill="#011753" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Label>
+                <TextField fx:id="titleField" prefWidth="250" promptText="Titre du livre" style="-fx-background-color: #F8F4EA; -fx-border-color: #B0A69D; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <Label text="Auteur :" textFill="#011753" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Label>
+                <TextField fx:id="authorField" prefWidth="250" promptText="Nom de l'auteur" style="-fx-background-color: #F8F4EA; -fx-border-color: #B0A69D; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <Label text="ISBN :" textFill="#011753" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Label>
+                <TextField fx:id="isbnField" prefWidth="250" promptText="Code ISBN" style="-fx-background-color: #F8F4EA; -fx-border-color: #B0A69D; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+                <Label text="Catégorie :" textFill="#011753" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font></Label>
+                <TextField fx:id="categoryField" prefWidth="250" promptText="Catégorie / genre" style="-fx-background-color: #F8F4EA; -fx-border-color: #B0A69D; -fx-border-width: 1;" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+                <columnConstraints>
+                    <ColumnConstraints halignment="RIGHT" />
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+            </GridPane>
+
+            <!-- Boutons d'action -->
+            <HBox alignment="CENTER" prefHeight="36.0" prefWidth="662.0" spacing="15">
+                <Button onAction="#onAddBook" style="-fx-background-color: #1b531e; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-cursor: hand;" text="Ajouter">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+
+                <Button onAction="#onDeleteSelected" style="-fx-background-color: #112267; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15; -fx-cursor: hand;" text="Supprimer">
+                    <font>
+                        <Font name="System Bold" size="14.0" />
+                    </font>
+                </Button>
+            </HBox>
+        </VBox>
+    </bottom>
+</BorderPane>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #F8F4EA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+
+    <center>
+        <VBox spacing="20" style="-fx-background-color: #ffffff;">
+            <padding>
+                <Insets bottom="20" left="20" right="20" top="20" />
+            </padding>
+
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #001c77; -fx-font-family: &quot;Georgia&quot;; -fx-effect: dropshadow(gaussian, rgba(139, 69, 19, 0.3), 3, 0.5, 1, 1);" text="Tableau de bord administrateur" textFill="#001c77" />
+
+            <Label style="-fx-font-size: 16px; -fx-text-fill: #676a6b; -fx-font-family: &quot;Georgia&quot;; -fx-font-style: italic;" text="Bienvenue dans l'espace d'administration. Utilisez le menu à gauche pour :" textFill="#676a6b" />
+
+            <GridPane hgap="20" vgap="20">
+
+                <!-- CORRECTION ICI : Ajoutez les balises columnConstraints -->
+                <columnConstraints>
+                    <ColumnConstraints hgrow="ALWAYS" />
+                    <ColumnConstraints hgrow="ALWAYS" />
+                </columnConstraints>
+
+                <!-- Si vous avez aussi besoin de rowConstraints, ajoutez-les : -->
+                <rowConstraints>
+                    <RowConstraints vgrow="ALWAYS" />
+                    <RowConstraints vgrow="ALWAYS" />
+                </rowConstraints>
+
+                <!-- Carte Gérer les livres -->
+                <BorderPane style="-fx-background-color: #cdd2d9; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #fffcf2; -fx-border-width: 2; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, rgba(139, 69, 19, 0.4), 10, 0.5, 3, 3);" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <center>
+                        <VBox spacing="8">
+                            <Label style="-fx-text-fill: #000000; -fx-font-size: 16px; -fx-font-weight: bold; -fx-font-family: &quot;Georgia&quot;;" text="Gérer les livres">
+                                <font>
+                                    <Font name="Georgia Bold" size="14.0" />
+                                </font></Label>
+                            <Label style="-fx-text-fill: #556B2F; -fx-font-size: 13px; -fx-font-family: &quot;Garamond&quot;;" text="Ajouter, modifier, supprimer des livres du catalogue." wrapText="true" />
+                        </VBox>
+                    </center>
+                </BorderPane>
+
+                <!-- Carte Gérer les emprunts -->
+                <BorderPane style="-fx-background-color: #cdd2d9; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #fffcf2; -fx-border-radius: 10; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(139, 69, 19, 0.4), 10, 0.5, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                    <center>
+                        <VBox spacing="8" style="-fx-background-color: #cdd2d9;">
+                            <Label style="-fx-text-fill: #000000; -fx-font-size: 16px; -fx-font-weight: bold; -fx-font-family: &quot;Georgia&quot;;" text="Gérer les emprunts" />
+                            <Label style="-fx-text-fill: #556B2F; -fx-font-size: 13px; -fx-font-family: &quot;Garamond&quot;;" text="Créer de nouveaux emprunts, marquer des retours, voir les retards." wrapText="true" />
+                        </VBox>
+                    </center>
+                </BorderPane>
+
+                <!-- Carte Gérer les adhérents -->
+                <BorderPane style="-fx-background-color: #cdd2d9; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #fffcf2; -fx-border-radius: 10; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(139, 69, 19, 0.4), 10, 0.5, 3, 3);" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <center>
+                        <VBox spacing="8">
+                            <Label style="-fx-text-fill: #000000; -fx-font-size: 16px; -fx-font-weight: bold; -fx-font-family: &quot;Georgia&quot;;" text="Gérer les adhérents" />
+                            <Label style="-fx-text-fill: #556B2F; -fx-font-size: 13px; -fx-font-family: &quot;Garamond&quot;;" text="Créer, mettre à jour et supprimer des comptes d'adhérents." wrapText="true" />
+                        </VBox>
+                    </center>
+                </BorderPane>
+
+                <!-- Carte Réservations -->
+                <BorderPane style="-fx-background-color: #cdd2d9; -fx-background-radius: 10; -fx-padding: 15; -fx-border-color: #fffcf2; -fx-border-radius: 10; -fx-border-width: 2; -fx-effect: dropshadow(gaussian, rgba(139, 69, 19, 0.4), 10, 0.5, 3, 3);" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <center>
+                        <VBox spacing="8">
+                            <Label style="-fx-text-fill: #000000; -fx-font-size: 16px; -fx-font-weight: bold; -fx-font-family: &quot;Georgia&quot;;" text="Voir les réservations" />
+                            <Label style="-fx-text-fill: #556B2F; -fx-font-size: 13px; -fx-font-family: &quot;Garamond&quot;;" text="Consulter toutes les réservations, leurs statuts et priorités." wrapText="true" />
+                        </VBox>
+                    </center>
+                </BorderPane>
+
+            </GridPane>
+
+        </VBox>
+    </center>
+
+</BorderPane>

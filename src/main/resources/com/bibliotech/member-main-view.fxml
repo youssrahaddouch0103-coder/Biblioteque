@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #F8F4EA;" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.bibliotech.MemberMainController">
+
+    <top>
+        <HBox alignment="CENTER" spacing="20" style="-fx-background-color: #F8F4EA;">
+            <padding>
+                <Insets bottom="10" left="10" right="10" top="10" />
+            </padding>
+
+            <!-- Titre de bienvenue -->
+            <Label fx:id="welcomeLabel" style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Bienvenue !" textFill="#00175c">
+                <font>
+                    <Font name="Georgia Bold Italic" size="26.0" />
+                </font>
+            </Label>
+
+            <Pane HBox.hgrow="ALWAYS" />
+
+            <!-- Bouton Déconnexion -->
+            <Button onAction="#onLogout" style="-fx-background-color: #00175c; -fx-text-fill: white; -fx-font-weight: bold; -fx-padding: 8 15 8 15; -fx-cursor: hand;" text="Déconnexion" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="14.0" />
+                </font>
+            </Button>
+        </HBox>
+    </top>
+
+    <center>
+        <TabPane tabClosingPolicy="UNAVAILABLE">
+            <tabs>
+
+                <!-- ====== CATALOGUE ====== -->
+                <Tab style="-fx-background-color: #7d808d; -fx-border-color: #B0A69D; -fx-text-fill: #ffffff; -fx-border-width: 2; -fx-border-radius: 5; -fx-font-weight: bold; -fx-cursor: hand;" text="Catalogue">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="catalogueTable" style="-fx-background-color: white; -fx-border-color: #F8F4EA;">
+                                    <columns>
+                                        <TableColumn fx:id="catColId" prefWidth="60" text="ID" />
+                                        <TableColumn fx:id="catColTitle" prefWidth="220" text="Titre" />
+                                        <TableColumn fx:id="catColAuthor" prefWidth="180" text="Auteur" />
+                                        <TableColumn fx:id="catColIsbn" prefWidth="140" text="ISBN" />
+                                        <TableColumn fx:id="catColCategory" prefWidth="160" text="Catégorie" />
+                                    </columns>
+                                </TableView>
+                            </center>
+
+                            <bottom>
+                                <VBox spacing="6" style="-fx-background-color: #F8F4EA; -fx-border-color: #F9F4EA;">
+                                    <padding>
+                                        <Insets bottom="6" left="6" right="6" top="6" />
+                                    </padding>
+
+                                    <!-- Recherche -->
+                                    <GridPane hgap="8" style="-fx-background-color: #F9F5EA;" vgap="4">
+                                        <Label text="Titre :" textFill="#001055" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Label>
+                                        <TextField fx:id="searchTitleField" promptText="Rechercher par titre" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                                        <Label text="Auteur :" textFill="#001055" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Label>
+                                        <TextField fx:id="searchAuthorField" promptText="Auteur" GridPane.columnIndex="3" GridPane.rowIndex="0" />
+
+                                        <Label text="ISBN :" textFill="#001055" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Label>
+                                        <TextField fx:id="searchIsbnField" promptText="ISBN" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                                        <Label text="Catégorie :" textFill="#001055" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Label>
+                                        <TextField fx:id="searchCategoryField" promptText="Catégorie" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+
+                                        <columnConstraints>
+                                            <ColumnConstraints />
+                                            <ColumnConstraints />
+                                            <ColumnConstraints />
+                                            <ColumnConstraints />
+                                        </columnConstraints>
+                                        <rowConstraints>
+                                            <RowConstraints />
+                                            <RowConstraints />
+                                        </rowConstraints>
+                                    </GridPane>
+
+                                    <!-- Filtres -->
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Label text="Filtre :" textFill="#7d808d">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Label>
+                                        <RadioButton fx:id="filterAllRadio" selected="true" text="Tous" textFill="#7d808d">
+                                            <toggleGroup>
+                                                <ToggleGroup fx:id="filterGroup" />
+                                            </toggleGroup>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </RadioButton>
+                                        <RadioButton fx:id="filterAvailableRadio" text="Disponible seulement" textFill="#7d808d" toggleGroup="$filterGroup">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></RadioButton>
+                                        <RadioButton fx:id="filterLoanedRadio" text="Emprunté" textFill="#7d808d" toggleGroup="$filterGroup">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></RadioButton>
+                                        <RadioButton fx:id="filterReservableRadio" text="Réservations possibles" textFill="#7d808d" toggleGroup="$filterGroup">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></RadioButton>
+                                    </HBox>
+
+                                    <!-- SECTION POUR CREER UN EMPRUNT -->
+                                    <VBox spacing="5" style="-fx-background-color: #E8F4EA; -fx-border-color: #2E8B57; -fx-border-width: 1; -fx-border-radius: 5; -fx-padding: 10;">
+                                        <Label text="Créer un emprunt" style="-fx-font-weight: bold; -fx-font-size: 14px; -fx-text-fill: #00175c;">
+                                            <font>
+                                                <Font name="System Bold" size="14.0" />
+                                            </font>
+                                        </Label>
+
+                                        <HBox alignment="CENTER_LEFT" spacing="10">
+                                            <Label text="Durée (jours):" textFill="#001055">
+                                                <font>
+                                                    <Font name="System Bold" size="12.0" />
+                                                </font>
+                                            </Label>
+                                            <TextField fx:id="loanDurationField" promptText="Nombre de jours" prefWidth="80" />
+                                            <Button onAction="#onCreateLoan" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Créer l'emprunt">
+                                                <font>
+                                                    <Font name="System Bold" size="12.0" />
+                                                </font>
+                                            </Button>
+                                            <Button onAction="#onReserveSelected" style="-fx-background-color: #A0522D; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Réserver ce livre" />
+                                        </HBox>
+
+                                        <!-- Messages d'emprunt -->
+                                        <Label fx:id="loanMessageLabel" style="-fx-font-size: 12px;" />
+                                    </VBox>
+
+                                    <!-- Boutons -->
+                                    <HBox alignment="CENTER_LEFT" spacing="10">
+                                        <Button onAction="#onApplyFilters" style="-fx-background-color: #A0522D; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="Appliquer les filtres">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
+
+                                        <Button onAction="#onResetFilters" style="-fx-background-color: #6D7B8D; -fx-text-fill: white; -fx-cursor: hand; -fx-font-weight: bold;" text="Réinitialiser">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
+
+                                        <Button onAction="#onRefresh" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-font-weight: bold; -fx-cursor: hand;" text="Rafraîchir">
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font></Button>
+
+                                        <Pane HBox.hgrow="ALWAYS" />
+                                    </HBox>
+
+                                    <!-- Message de réservation -->
+                                    <Label fx:id="reservationMessageLabel" textFill="red" />
+                                </VBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </Tab>
+
+                <!-- ====== MES EMPRUNTS ====== -->
+                <Tab style="-fx-background-color: #7d808d; -fx-border-width: 2; -fx-border-radius: 5; -fx-border-color: #B0A69D; -fx-cursor: hand; -fx-font-weight: bold;" text="Mes emprunts">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="loansTable" style="-fx-background-color: white;">
+                                    <columns>
+                                        <TableColumn fx:id="loanColId" prefWidth="60" text="ID" />
+                                        <TableColumn fx:id="loanColBook" prefWidth="260" text="Livre" />
+                                        <TableColumn fx:id="loanColLoanDate" prefWidth="130" text="Date emprunt" />
+                                        <TableColumn fx:id="loanColDueDate" prefWidth="150" text="Date retour prévue" />
+                                        <TableColumn fx:id="loanColReturnDate" prefWidth="150" text="Date retour réelle" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                            <bottom>
+                                <HBox alignment="CENTER_RIGHT" spacing="10" style="-fx-background-color: #F8F4EA;">
+                                    <padding>
+                                        <Insets bottom="10" left="10" right="10" top="10" />
+                                    </padding>
+                                    <Button onAction="#onRefresh" style="-fx-background-color: #2E8B57; -fx-text-fill: white;" text="Rafraîchir">
+                                        <font>
+                                            <Font name="System Bold" size="14.0" />
+                                        </font></Button>
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </Tab>
+
+                <!-- ====== MES RÉSERVATIONS ====== -->
+                <Tab style="-fx-background-color: #7d808d; -fs-text-fill: white; -fx-border-width: 2; -fx-border-radius: 5; -fx-border-color: #B0A69D; -fx-cursor: hand; -fx-font-weight: bold;" text="Mes réservations">
+                    <content>
+                        <BorderPane>
+                            <center>
+                                <TableView fx:id="reservationsTable" style="-fx-background-color: white;">
+                                    <columns>
+                                        <TableColumn fx:id="resColId" prefWidth="60" text="ID" />
+                                        <TableColumn fx:id="resColBook" prefWidth="260" text="Livre" />
+                                        <TableColumn fx:id="resColDate" prefWidth="150" text="Date réservation" />
+                                        <TableColumn fx:id="resColStatus" prefWidth="120" text="Statut" />
+                                    </columns>
+                                </TableView>
+                            </center>
+                            <bottom>
+                                <HBox alignment="CENTER_LEFT" spacing="10">
+                                    <padding>
+                                        <Insets bottom="10" left="10" right="10" top="10" />
+                                    </padding>
+                                    <Button onAction="#onCancelReservation" style="-fx-background-color: #A0522D; -fx-text-fill: #ffefd0;" text="Annuler la réservation">
+                                        <font>
+                                            <Font name="System Bold" size="14.0" />
+                                        </font></Button>
+                                    <Button onAction="#onRefresh" style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-font-weight: bold;" text="Rafraîchir" />
+                                </HBox>
+                            </bottom>
+                        </BorderPane>
+                    </content>
+                </Tab>
+
+            </tabs>
+        </TabPane>
+    </center>
+
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+</BorderPane>

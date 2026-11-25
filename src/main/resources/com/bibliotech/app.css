@@ -1,0 +1,147 @@
+/* ============================================================================
+                             CARTE LOGIN + FOND IMAGE
+   ============================================================================ */
+
+.login-root {
+    -fx-background-image: url("img/login-bg-blur.jpeg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+
+    /* voile bleu/gris semi-transparent */
+    -fx-background-color: rgba(35, 47, 62, 0.80);
+    -fx-padding: 40;
+    -fx-background-radius: 20;
+    -fx-border-radius: 20;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.55), 25, 0, 0, 8);
+}
+
+/* ============================================================================
+                                     TITRE
+   ============================================================================ */
+
+.login-title {
+    -fx-text-fill: #0f172a;            /* bleu très clair */
+    -fx-font-size: 34px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia", "Serif";
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.40), 6, 0, 2, 2);
+}
+
+/* ============================================================================
+                                     LABELS
+   ============================================================================ */
+
+.login-label {
+    -fx-text-fill: #0f172a;            /* gris bleu très clair */
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia";
+}
+
+/* ============================================================================
+                                CHAMPS DE TEXTE
+   ============================================================================ */
+
+.login-field {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #003566;            /* gris bleu foncé */
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+    -fx-border-color: #9fb3c8;         /* bleu/gris pastel */
+    -fx-border-width: 1.5;
+    -fx-font-size: 15px;
+    -fx-font-family: "Georgia";
+    -fx-padding: 10 15;
+    -fx-font-weight: bold;
+}
+
+.login-field:focused {
+    -fx-border-color: #486581;         /* bleu accent */
+    -fx-border-width: 2;
+    -fx-effect: dropshadow(gaussian, rgba(72,101,129,0.40), 10, 0, 0, 3);
+}
+
+/* ============================================================================
+                                  RADIOBUTTONS
+   ============================================================================ */
+
+.radio-button {
+    -fx-font-family: "Georgia";
+    -fx-text-fill: #0f172a;            /* gris clair */
+    -fx-font-size: 14px;
+}
+
+/* ============================================================================
+                             BOUTON PRINCIPAL
+   ============================================================================ */
+
+.action-button {
+    -fx-background-color: linear-gradient(to bottom, #486581, #334e68);
+    -fx-text-fill: #f0f4f8;            /* blanc bleuté */
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-font-family: "Georgia";
+    -fx-padding: 12 30;
+    -fx-background-radius: 10;
+    -fx-border-color: #243b53;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.5;
+    -fx-effect: dropshadow(gaussian, rgba(36,59,83,0.35), 10, 0, 0, 4);
+    -fx-cursor: hand;
+}
+
+.action-button:hover {
+    -fx-background-color: linear-gradient(to bottom, #527a96, #3c5973);
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+}
+
+.action-button:pressed {
+    -fx-background-color: linear-gradient(to bottom, #2f4554, #223240);
+    -fx-scale-x: 0.98;
+    -fx-scale-y: 0.98;
+}
+
+/* ============================================================================
+                          BOUTON SECONDAIRE
+   ============================================================================ */
+
+.secondary-button {
+    -fx-background-color: #e6edf3;     /* bleu gris clair */
+    -fx-text-fill: #334e68;            /* bleu foncé */
+    -fx-font-family: "Georgia";
+    -fx-font-size: 15px;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+    -fx-border-color: #486581;
+    -fx-border-radius: 10;
+    -fx-border-width: 1.3;
+    -fx-effect: dropshadow(gaussian, rgba(72,101,129,0.25), 6, 0, 0, 3);
+    -fx-cursor: hand;
+}
+
+.secondary-button:hover {
+    -fx-background-color: #d4e1ec;
+}
+
+.secondary-button:pressed {
+    -fx-background-color: #c5d2df;
+    -fx-translate-y: 1;
+}
+
+/* ============================================================================
+                                MESSAGE D'ERREUR
+   ============================================================================ */
+
+.error-message {
+    -fx-text-fill: #b71c1c;            /* rouge lisible */
+    -fx-background-color: #fdecea;
+    -fx-background-radius: 8;
+    -fx-border-color: #f5c6c6;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 10 15;
+    -fx-font-family: "Georgia";
+    -fx-font-size: 13px;
+}
