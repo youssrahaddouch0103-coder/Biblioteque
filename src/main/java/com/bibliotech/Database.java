@@ -8,9 +8,8 @@ import java.sql.Statement;
 
 public class Database {
 
-    // Fichier SQLite que TU utilises déjà
-    private static final String URL =
-            "jdbc:sqlite:C:/Users/PC/OneDrive/Bureau/bibliotech/bibliotech.db";
+    // Fichier SQLite créé dans le dossier de lancement de l'application
+    private static final String URL = "jdbc:sqlite:bibliotech.db";
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(URL);
